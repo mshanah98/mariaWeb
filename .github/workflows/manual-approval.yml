@@ -1,0 +1,28 @@
+name: Manual Approval Request
+on:
+  workflow_run:
+    workflows: ["Deploy to Beta"]
+    types:
+      - completed
+
+jobs:
+  request-approval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify for Approval
+        run: |
+          echo "🚀 Beta Deployment Completed!"
+          echo "🔍 Manual Approval Needed to Proceed to Production."
+          echo "⚠️ Please approve deployment in AWS CodePipeline: https://console.aws.amazon.com/codesuite/codepipeline"
+
+      - name: Create GitHub Issue for Approval
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.create({
+              owner: 'mshanah98',
+              repo: 'mariaWeb',
+              title: '🚀 Manual Approval Required for Production Deployment',
+              body: 'The Beta deployment has been completed successfully. Please approve the deployment to Production in AWS CodePipeline.\n\n🔗 [Click here to approve](https://console.aws.amazon.com/codesuite/codepipeline)'
+            });

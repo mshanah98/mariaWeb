@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+/* index.css */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #A67B5B; /* Ensuring full background */
+  }

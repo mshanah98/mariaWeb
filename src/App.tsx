@@ -1,15 +1,9 @@
 import './App.css'
+import HomePage from './components/home'
 
 
 function App() {
-
-  return (
-    <>
-      <h1 className="text-5xl font-bold underline">
-    Hello world!
-  </h1>
-    </>
-  )
+  return <HomePage />
 }
 
 export default App

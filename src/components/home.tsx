@@ -14,7 +14,7 @@ const HomePage = () => {
       {/* Introduction */}
       <motion.section 
         className="w-full max-w-4xl bg-[#4E342E] text-[#F5F5F5] p-8 rounded-3xl shadow-xl flex flex-col items-center"
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 1, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
